@@ -16,6 +16,8 @@ import './assets/css/index.css'
 import axios from 'axios';
 // 配置所有Vue的实例都具有axios这个成员
 Vue.prototype.axios = axios;
+// 设置baseURL
+axios.defaults.baseURL = 'http://localhost:3000/';
 // 配置vue的插件vue-router
 Vue.use(VueRouter);
 const router = new VueRouter({

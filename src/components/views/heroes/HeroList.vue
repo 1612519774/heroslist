@@ -44,7 +44,7 @@ export default {
   methods: {
     loadData() {
      this.axios
-        .get(" http://localhost:3000/heroes")
+        .get("heroes")
         .then(res => {
           console.log(res);
           const { data, status } = res;
@@ -63,7 +63,7 @@ export default {
       return false;
     }
     this.axios
-      .delete(`http://localhost:3000/heroes/${id}`)
+      .delete(`heroes/${id}`)
       .then(res => {
         const { status } = res;
         if (status == 200) {
