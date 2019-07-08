@@ -3,6 +3,7 @@ import App from './App.vue'
 
 import HeroList from "./components/views/heroes/HeroList.vue"
 import herosAdd from "./components/views/heroes/herosAdd.vue"
+import herosEdit from "./components/views/heroes/herosEdit.vue"
 import WeaponList from "./components/views/weapons/WeaponList.vue"
 import EquipList from "./components/views/equips/EquipList.vue"
 // 导入vue-router
@@ -30,6 +31,12 @@ const router = new VueRouter({
      {
       name: "heroesadd", path: "/heroes/add", component: herosAdd
     },
+    // {
+    // //   name: "heroesedit", path: "/heroes/edit/:id", component: herosEdit
+    // // },
+    {
+      name: "heroesedit", path: "/heroes/edit/:id", component: herosEdit, props:true
+    }
 ]
 })
 new Vue({

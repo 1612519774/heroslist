@@ -19,7 +19,7 @@
             <td>{{item.name}}</td>
             <td>{{item.gender}}</td>
             <td>
-              <a href="edit.html">修改</a>
+              <router-link :to="'/heroes/edit/'+ item.id">编辑</router-link>
               &nbsp;&nbsp;
               <!-- <a href="javascript:window.confirm('Are you sure?')">删除</a> -->
               <a href="javascript:" @click="del(item.id)">删除</a>
