@@ -10,10 +10,6 @@ Vue.config.productionTip = false
 // 导入样式文件
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import './assets/css/index.css'
-import axios from 'axios';
-Vue.prototype.axios=axios;
-
-
 // 配置vue的插件vue-router
 Vue.use(VueRouter);
 const router = new VueRouter({
