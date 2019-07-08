@@ -12,6 +12,10 @@ Vue.config.productionTip = false
 // 导入样式文件
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import './assets/css/index.css'
+// 导入axios
+import axios from 'axios';
+// 配置所有Vue的实例都具有axios这个成员
+Vue.prototype.axios = axios;
 // 配置vue的插件vue-router
 Vue.use(VueRouter);
 const router = new VueRouter({
@@ -31,9 +35,6 @@ const router = new VueRouter({
      {
       name: "heroesadd", path: "/heroes/add", component: herosAdd
     },
-    // {
-    // //   name: "heroesedit", path: "/heroes/edit/:id", component: herosEdit
-    // // },
     {
       name: "heroesedit", path: "/heroes/edit/:id", component: herosEdit, props:true
     }

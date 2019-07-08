@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     loadDataById() {
-      axios
+      this.axios
         .get(`http://localhost:3000/heroes/${this.id}`)
         .then((res) => {
           const { data, status } = res;
@@ -58,7 +58,7 @@ export default {
     },
     update() {
       // 发送请求
-      axios
+     this.axios
         .put(`http://localhost:3000/heroes/${this.id}`, this.formData)
         .then(response => {
           const status = response.status;
