@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import AppHeader from './components/AppHeader.vue'
 import AppSilder from './components/AppSilder.vue'
-import AppList from './components/AppList.vue'
 import VueRouter from 'vue-router'
 
 Vue.config.productionTip = false
