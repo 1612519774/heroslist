@@ -1,7 +1,8 @@
 <template>
   <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h2 class="sub-header">英雄管理</h2>
-    <a class="btn btn-success" href="add.html">添加</a>
+    <!-- <a class="btn btn-success" href="/herosAdd">添加</a> -->
+    <router-link class="btn btn-success" :to="{name:'heroesadd'}">添加</router-link>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
@@ -13,15 +14,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(items,index) in list" :key="items.id" >
-            <td>{{index+1}}</td>
-            <td>{{items.name}}</td>
-            <td>{{items.gender}}</td>
+          <tr v-for="(item) in list" :key="item.id">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.gender}}</td>
             <td>
               <a href="edit.html">修改</a>
               &nbsp;&nbsp;
               <!-- <a href="javascript:window.confirm('Are you sure?')">删除</a> -->
-             <a href="#" @click="del(items.id)">删除</a>
+              <a href="javascript:" @click="del(item.id)">删除</a>
             </td>
           </tr>
         </tbody>
@@ -32,39 +33,53 @@
 
 <script>
 // 导入axios
-import axios from 'axios';
+import axios from "axios";
 export default {
   data() {
     return {
       list: []
-    }
+    };
   },
   mounted() {
     this.loadData();
   },
   methods: {
-    loadData(){
+    loadData() {
       axios
-      .get(' http://localhost:3000/heroes')
-      .then((res)=>{
-        console.log(res)
-        const {data,status}=res;
-        if (status==200) {
-          this.list=data
-        }else{
-          console.log("获取失败")
+        .get(" http://localhost:3000/heroes")
+        .then(res => {
+          console.log(res);
+          const { data, status } = res;
+          if (status == 200) {
+            this.list = data;
+          } else {
+            console.log("获取失败");
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+     del(id) {
+    if (!confirm("是否确认删除？")) {
+      return false;
+    }
+    axios
+      .delete(`http://localhost:3000/heroes/${id}`)
+      .then(res => {
+        const { status } = res;
+        if (status == 200) {
+          this.loadData();
+        } else {
+          console.log("删除失败");
         }
-      }).catch((err)=>{
-        console.log(err)
       })
-    }
-  },
-  del(id){
-    if (!comfirm('是否确认删除？')) {
-      return;
-    }
-    axios.delete()
+      .catch(err => {
+        console.log(err);
+      });
   }
+  },
+ 
 };
 </script>
 

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 
 import HeroList from "./components/views/heroes/HeroList.vue"
+import herosAdd from "./components/views/heroes/herosAdd.vue"
 import WeaponList from "./components/views/weapons/WeaponList.vue"
 import EquipList from "./components/views/equips/EquipList.vue"
 // 导入vue-router
@@ -25,6 +26,9 @@ const router = new VueRouter({
     },
     {
       name: "equips", path: "/equips", component: EquipList
+    },
+     {
+      name: "heroesadd", path: "/heroes/add", component: herosAdd
     },
 ]
 })
